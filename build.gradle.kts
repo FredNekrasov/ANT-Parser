@@ -10,6 +10,10 @@ repositories {
 }
 
 dependencies {
+    implementation("io.ktor:ktor-client-core:2.3.10")
+    implementation("io.ktor:ktor-client-cio:2.3.10")
+    implementation("org.jsoup:jsoup:1.17.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
     testImplementation(kotlin("test"))
 }
 
