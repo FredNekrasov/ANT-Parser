@@ -7,5 +7,5 @@ import javax.inject.Inject
 class GetCatalogsInteractor @Inject constructor(
     private val repository: IRepository<Catalog, Int>
 ) {
-    operator fun invoke() = repository.getList()
+    operator fun invoke(): List<Catalog> = repository.getList()
 }

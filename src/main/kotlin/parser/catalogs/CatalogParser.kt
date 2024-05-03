@@ -1,4 +1,4 @@
-package parser.presentation.catalogs
+package parser.catalogs
 
 import org.jsoup.Jsoup
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package parser.presentation.articleTypes.priesthood
+package parser.articleTypes.priesthood
 
 import org.jsoup.Jsoup
 import org.jsoup.select.Elements

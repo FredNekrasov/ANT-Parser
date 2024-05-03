@@ -8,10 +8,11 @@ import javax.inject.Inject
 class InsertCatalogInteractor @Inject constructor(
     private val repository: IRepository<Catalog, Int>
 ) {
-    operator fun invoke(model: Catalog): ActionStatus {
-        val catalog = repository.getList().firstOrNull { it.name.lowercase() == model.name.lowercase() }
-        if (catalog != null) return ActionStatus.NOT_FOUND
-        repository.insert(model)
+    operator fun invoke(catalogName: String): ActionStatus {
+        if (catalogName.isBlank()) return ActionStatus.FAILURE
+        val catalog = repository.getList().firstOrNull { it.name.lowercase() == catalogName.lowercase() }
+        if (catalog != null) return ActionStatus.ALREADY_EXISTS
+        repository.insert(Catalog(name = catalogName))
         return ActionStatus.SUCCESS
     }
 }

@@ -1,4 +1,4 @@
-package parser.presentation.articleTypes.main
+package parser.articleTypes.main
 
 import org.jsoup.Jsoup
 import org.jsoup.select.Elements
