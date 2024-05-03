@@ -1,10 +1,9 @@
-package parser.domain.interactors.contents.insert
+package domain.interactors.contents.insert
 
-import parser.domain.models.Content
-import parser.domain.repositories.IRepository
-import javax.inject.Inject
+import domain.models.Content
+import domain.repositories.IRepository
 
-class InsertContentInteractor @Inject constructor(
+class InsertContentInteractor(
     private val repository: IRepository<Content, Long>
 ) {
     operator fun invoke(model: Content) = repository.insert(model)

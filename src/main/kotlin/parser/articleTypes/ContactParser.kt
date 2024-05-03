@@ -1,4 +1,4 @@
-package parser.articleTypes.contacts
+package parser.articleTypes
 
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document

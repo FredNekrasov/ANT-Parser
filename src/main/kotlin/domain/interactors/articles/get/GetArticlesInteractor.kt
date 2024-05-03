@@ -1,10 +1,9 @@
-package parser.domain.interactors.articles.get
+package domain.interactors.articles.get
 
-import parser.domain.models.Article
-import parser.domain.repositories.IRepository
-import javax.inject.Inject
+import domain.models.Article
+import domain.repositories.IRepository
 
-class GetArticlesInteractor @Inject constructor(
+class GetArticlesInteractor(
     private val repository: IRepository<Article, Long>
 ) {
     operator fun invoke(): List<Article> = repository.getList()

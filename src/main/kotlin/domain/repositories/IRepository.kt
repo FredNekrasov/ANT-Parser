@@ -1,4 +1,4 @@
-package parser.domain.repositories
+package domain.repositories
 
 interface IRepository<M, I> {
     fun getList(): List<M>

@@ -1,10 +1,9 @@
-package parser.domain.interactors.catalogs.get
+package domain.interactors.catalogs.get
 
-import parser.domain.models.Catalog
-import parser.domain.repositories.IRepository
-import javax.inject.Inject
+import domain.models.Catalog
+import domain.repositories.IRepository
 
-class GetCatalogsInteractor @Inject constructor(
+class GetCatalogsInteractor(
     private val repository: IRepository<Catalog, Int>
 ) {
     operator fun invoke(): List<Catalog> = repository.getList()

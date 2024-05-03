@@ -1,4 +1,4 @@
-package parser.articleTypes.sacrament
+package parser.articleTypes
 
 import org.jsoup.Jsoup
 

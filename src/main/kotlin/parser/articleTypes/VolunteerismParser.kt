@@ -1,4 +1,4 @@
-package parser.articleTypes.volunteerism
+package parser.articleTypes
 
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document

@@ -1,11 +1,10 @@
-package parser.domain.interactors.catalogs.insert
+package domain.interactors.catalogs.insert
 
-import parser.domain.models.Catalog
-import parser.domain.repositories.IRepository
-import parser.domain.utils.ActionStatus
-import javax.inject.Inject
+import domain.models.Catalog
+import domain.repositories.IRepository
+import domain.utils.ActionStatus
 
-class InsertCatalogInteractor @Inject constructor(
+class InsertCatalogInteractor(
     private val repository: IRepository<Catalog, Int>
 ) {
     operator fun invoke(catalogName: String): ActionStatus {

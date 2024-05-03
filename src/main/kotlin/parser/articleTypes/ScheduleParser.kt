@@ -1,4 +1,4 @@
-package parser.articleTypes.schedule
+package parser.articleTypes
 
 import org.jsoup.Jsoup
 

@@ -1,11 +1,10 @@
-package parser.domain.interactors.contents.delete
+package domain.interactors.contents.delete
 
-import parser.domain.models.Content
-import parser.domain.repositories.IRepository
-import parser.domain.utils.ActionStatus
-import javax.inject.Inject
+import domain.models.Content
+import domain.repositories.IRepository
+import domain.utils.ActionStatus
 
-class DeleteContentInteractor @Inject constructor(
+class DeleteContentInteractor(
     private val repository: IRepository<Content, Long>
 ) {
     operator fun invoke(id: Long): ActionStatus {

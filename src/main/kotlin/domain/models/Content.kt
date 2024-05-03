@@ -1,4 +1,4 @@
-package parser.domain.models
+package domain.models
 
 data class Content(
     val id: Long = 0L,

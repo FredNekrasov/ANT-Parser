@@ -1,11 +1,10 @@
-package parser.domain.interactors.catalogs.delete
+package domain.interactors.catalogs.delete
 
-import parser.domain.models.Catalog
-import parser.domain.repositories.IRepository
-import parser.domain.utils.ActionStatus
-import javax.inject.Inject
+import domain.models.Catalog
+import domain.repositories.IRepository
+import domain.utils.ActionStatus
 
-class DeleteCatalogInteractor @Inject constructor(
+class DeleteCatalogInteractor(
     private val repository: IRepository<Catalog, Int>
 ) {
     operator fun invoke(id: Int): ActionStatus {

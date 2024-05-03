@@ -1,10 +1,10 @@
-package parser.data.repositories
+package data.repositories
 
 import io.ktor.client.request.*
 import kotlinx.coroutines.*
-import parser.data.remote.WebAPI
-import parser.domain.models.Article
-import parser.domain.repositories.IRepository
+import data.remote.WebAPI
+import domain.models.Article
+import domain.repositories.IRepository
 
 class ArticleRepository(
     private val api: WebAPI
