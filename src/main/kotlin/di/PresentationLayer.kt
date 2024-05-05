@@ -2,8 +2,8 @@ package di
 
 import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.module
-import parser.catalogs.CatalogParser
-import parser.articleTypes.*
+import presentation.parser.catalogs.CatalogParser
+import presentation.parser.articleTypes.*
 
 val presentationLayer = module {
     factoryOf(::CatalogParser)

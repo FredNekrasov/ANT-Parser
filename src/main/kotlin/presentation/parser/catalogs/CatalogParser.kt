@@ -1,4 +1,4 @@
-package parser.catalogs
+package presentation.parser.catalogs
 
 import org.jsoup.Jsoup
 
