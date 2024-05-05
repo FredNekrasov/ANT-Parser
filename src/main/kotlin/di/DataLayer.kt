@@ -1,22 +1,39 @@
 package di
 
-import data.remote.WebAPI
 import data.repositories.*
 import domain.models.*
 import domain.repositories.IRepository
+import io.ktor.client.*
+import io.ktor.client.engine.cio.*
+import io.ktor.client.plugins.contentnegotiation.*
+import io.ktor.client.plugins.logging.*
+import io.ktor.serialization.kotlinx.json.*
+import kotlinx.serialization.json.Json
 import org.koin.dsl.module
 
 val dataLayer = module {
-    single<WebAPI>(createdAtStart = true) {
-        WebAPI()
+    single(createdAtStart = true) {
+        HttpClient(CIO) {
+            install(Logging) {
+                level = LogLevel.ALL
+            }
+            install(ContentNegotiation) {
+                json(
+                    Json {
+                        prettyPrint = true
+                        isLenient = true
+                    }
+                )
+            }
+        }
     }
-    single<IRepository<Catalog, Int>> { 
-        CatalogRepository(get<WebAPI>())
+    single<IRepository<Catalog, Int>> {
+        CatalogRepository(get<HttpClient>())
     }
     single<IRepository<Article, Long>> {
-        ArticleRepository(get<WebAPI>())
+        ArticleRepository(get<HttpClient>())
     }
     single<IRepository<Content, Long>> {
-        ContentRepository(get<WebAPI>())
+        ContentRepository(get<HttpClient>())
     }
 }
