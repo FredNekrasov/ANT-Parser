@@ -1,28 +1,28 @@
 package data.repositories
 
-import io.ktor.client.request.*
-import kotlinx.coroutines.*
-import data.remote.WebAPI
+import data.mappers.*
+import data.remote.dto.CatalogDto
 import domain.models.Catalog
 import domain.repositories.IRepository
+import io.ktor.client.*
+import io.ktor.client.call.*
+import io.ktor.client.request.*
+import io.ktor.http.*
 
 class CatalogRepository(
-    private val api: WebAPI
+    private val client: HttpClient
 ) : IRepository<Catalog, Int> {
-    private val scope = CoroutineScope(Dispatchers.IO)
-    private val url = "https://alexander-nevsky.ru/catalog/"
-    private var list = emptyList<Catalog>()
-    override fun getList(): List<Catalog> {
-        TODO("Not yet implemented")
-    }
-    override fun insert(model: Catalog) {
-        scope.launch {
-            api.getHttpClient().post(url)
+    private val url = "http://localhost:5135/api/ArticleType"
+    override suspend fun getList(): List<Catalog> = client.get(url)
+        .body<List<CatalogDto>>()
+        .map { 
+            it.toDomain()
         }
+    override suspend fun insert(model: Catalog) = client.post(url) {
+        contentType(ContentType.Application.Json)
+        setBody(model.toDto())
+    }.let {
+        println(it.status.description)
     }
-    override fun delete(id: Int) {
-        scope.launch {
-            api.getHttpClient().delete(url)
-        }
-    }
+    override suspend fun delete(id: Int) = println(client.delete("$url/$id").status.description)
 }
