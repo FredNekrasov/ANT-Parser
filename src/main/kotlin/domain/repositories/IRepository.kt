@@ -1,7 +1,7 @@
 package domain.repositories
 
 interface IRepository<M, I> {
-    fun getList(): List<M>
-    fun insert(model: M)
-    fun delete(id: I)
+    suspend fun getList(): List<M>
+    suspend fun insert(model: M)
+    suspend fun delete(id: I)
 }

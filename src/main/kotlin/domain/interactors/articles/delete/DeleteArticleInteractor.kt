@@ -7,7 +7,7 @@ import domain.utils.ActionStatus
 class DeleteArticleInteractor(
     private val repository: IRepository<Article, Long>
 ) {
-    operator fun invoke(id: Long): ActionStatus {
+    suspend operator fun invoke(id: Long): ActionStatus {
         if (id <= 0) return ActionStatus.FAILURE
         repository.getList().firstOrNull { it.id == id } ?: return ActionStatus.NOT_FOUND
         repository.delete(id)

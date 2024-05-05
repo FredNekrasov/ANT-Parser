@@ -6,5 +6,5 @@ import domain.repositories.IRepository
 class InsertContentInteractor(
     private val repository: IRepository<Content, Long>
 ) {
-    operator fun invoke(model: Content) = repository.insert(model)
+    suspend operator fun invoke(model: Content) = repository.insert(model)
 }

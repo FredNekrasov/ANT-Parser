@@ -7,7 +7,7 @@ import domain.utils.ActionStatus
 class DeleteCatalogInteractor(
     private val repository: IRepository<Catalog, Int>
 ) {
-    operator fun invoke(id: Int): ActionStatus {
+    suspend operator fun invoke(id: Int): ActionStatus {
         if (id <= 0) return ActionStatus.FAILURE
         repository.getList().firstOrNull { it.id == id } ?: return ActionStatus.NOT_FOUND
         repository.delete(id)

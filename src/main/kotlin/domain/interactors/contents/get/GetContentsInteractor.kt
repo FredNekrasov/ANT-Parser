@@ -6,5 +6,5 @@ import domain.repositories.IRepository
 class GetContentsInteractor(
     private val repository: IRepository<Content, Long>
 ) {
-    operator fun invoke(): List<Content> = repository.getList()
+    suspend operator fun invoke(): List<Content> = repository.getList()
 }

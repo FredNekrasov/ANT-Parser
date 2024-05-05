@@ -7,7 +7,7 @@ import domain.utils.ActionStatus
 class InsertCatalogInteractor(
     private val repository: IRepository<Catalog, Int>
 ) {
-    operator fun invoke(catalogName: String): ActionStatus {
+    suspend operator fun invoke(catalogName: String): ActionStatus {
         if (catalogName.isBlank()) return ActionStatus.FAILURE
         val catalog = repository.getList().firstOrNull { it.name.lowercase() == catalogName.lowercase() }
         if (catalog != null) return ActionStatus.ALREADY_EXISTS
