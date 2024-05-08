@@ -10,5 +10,5 @@ class CatalogParser {
         .html()
         .replace("<a[\\w\\s-.\"=/>]*".toRegex(), "")
         .split("</a>")
-        .dropLastWhile { it.isBlank() }
+        .map { it.replace("\n", "") }
 }
