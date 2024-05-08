@@ -18,13 +18,13 @@ class ContactParser {
         clazzName: String = "t451__rightside t451__side t451__side_socials",
         tag: String = "a",
         attribute: String = "href"
-    ): String = parseData()
+    ): List<String> = parseData()
         .getElementsByClass(clazzName)
         .map {
             it.getElementsByTag(tag)
         }
         .flatten()
-        .joinToString("\n") {
+        .map {
             it.attr(attribute).trim()
         }
 }
