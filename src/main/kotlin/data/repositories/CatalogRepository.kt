@@ -12,7 +12,7 @@ import io.ktor.http.*
 class CatalogRepository(
     private val client: HttpClient
 ) : IRepository<Catalog, Int> {
-    private val url = "http://localhost:5135/api/ArticleType"
+    private val url = "http://localhost:5115/api/v2/catalog"
     override suspend fun getList(): List<Catalog> = client.get(url)
         .body<List<CatalogDto>>()
         .map { 
