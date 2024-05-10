@@ -11,7 +11,6 @@ dependencies {
     // network
     implementation("io.ktor:ktor-client-core:2.3.10")
     implementation("io.ktor:ktor-client-cio:2.3.10")
-    implementation("io.ktor:ktor-client-logging:2.3.10")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
     // serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
