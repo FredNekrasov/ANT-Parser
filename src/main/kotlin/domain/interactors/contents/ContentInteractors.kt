@@ -5,7 +5,7 @@ import domain.interactors.contents.get.GetContentsInteractor
 import domain.interactors.contents.insert.InsertContentInteractor
 
 data class ContentInteractors(
-    val getContent: GetContentsInteractor,
-    val deleteContent: DeleteContentInteractor,
-    val insertContent: InsertContentInteractor
+    val get: GetContentsInteractor,
+    val delete: DeleteContentInteractor,
+    val insert: InsertContentInteractor
 )

@@ -5,7 +5,7 @@ import domain.interactors.articles.get.GetArticlesInteractor
 import domain.interactors.articles.insert.InsertArticleInteractor
 
 data class ArticleInteractors(
-    val getArticles: GetArticlesInteractor,
-    val deleteArticle: DeleteArticleInteractor,
-    val insertArticle: InsertArticleInteractor
+    val get: GetArticlesInteractor,
+    val delete: DeleteArticleInteractor,
+    val insert: InsertArticleInteractor
 )
