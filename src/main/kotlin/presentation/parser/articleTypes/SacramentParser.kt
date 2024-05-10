@@ -17,6 +17,8 @@ class SacramentParser {
     fun parseTitle(): String = parseData()
         .slice(0..1)
         .joinToString("\n")
+        .split("^\\s".toRegex())
+        .joinToString("")
     fun parseDescription(): String = parseData()
         .run {
             slice(2..lastIndex)
