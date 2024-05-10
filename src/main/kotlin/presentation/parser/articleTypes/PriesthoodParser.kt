@@ -13,11 +13,11 @@ class PriesthoodParser {
         .split("\n")
         .joinToString("\n") { it.trim() }
     fun parseTitle(tag: String = "strong"): String = parseData()
-        .joinToString("\n") {
+        .joinToString("") {
             it.children().tagName(tag).html().trim()
         }
     fun parseContent(attribute: String = "data-original"): String = parseData()
-        .joinToString("\n") {
+        .joinToString("") {
             it.children().attr(attribute).trim()
         }
 }
