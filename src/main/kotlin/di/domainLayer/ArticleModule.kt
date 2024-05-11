@@ -1,24 +1,24 @@
 package di.domainLayer
 
+import di.utils.DIStrings
 import domain.interactors.articles.ArticleInteractors
 import domain.interactors.articles.delete.DeleteArticleInteractor
 import domain.interactors.articles.get.GetArticlesInteractor
 import domain.interactors.articles.insert.InsertArticleInteractor
-import domain.models.Article
-import domain.repositories.IRepository
+import org.koin.core.qualifier.qualifier
 import org.koin.dsl.module
 
 val articleModule = module {
-    factory {
-        InsertArticleInteractor(get<IRepository<Article, Long>>())
+    single {
+        InsertArticleInteractor(get(qualifier(DIStrings.ARTICLE_REPOSITORY)))
     }
-    factory {
-        DeleteArticleInteractor(get<IRepository<Article, Long>>())
+    single {
+        DeleteArticleInteractor(get(qualifier(DIStrings.ARTICLE_REPOSITORY)))
     }
-    factory {
-        GetArticlesInteractor(get<IRepository<Article, Long>>())
+    single {
+        GetArticlesInteractor(get(qualifier(DIStrings.ARTICLE_REPOSITORY)))
     }
-    factory {
+    single(qualifier(DIStrings.ARTICLE_INTERACTORS)) {
         ArticleInteractors(
             get<GetArticlesInteractor>(),
             get<DeleteArticleInteractor>(),

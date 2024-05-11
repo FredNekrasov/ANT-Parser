@@ -1,24 +1,24 @@
 package di.domainLayer
 
+import di.utils.DIStrings
 import domain.interactors.catalogs.CatalogInteractors
 import domain.interactors.catalogs.delete.DeleteCatalogInteractor
 import domain.interactors.catalogs.get.GetCatalogsInteractor
 import domain.interactors.catalogs.insert.InsertCatalogInteractor
-import domain.models.Catalog
-import domain.repositories.IRepository
+import org.koin.core.qualifier.qualifier
 import org.koin.dsl.module
 
 val catalogModule = module {
-    factory {
-        InsertCatalogInteractor(get<IRepository<Catalog, Int>>())
+    single {
+        InsertCatalogInteractor(get(qualifier(DIStrings.CATALOG_REPOSITORY)))
     }
-    factory {
-        DeleteCatalogInteractor(get<IRepository<Catalog, Int>>())
+    single {
+        DeleteCatalogInteractor(get(qualifier(DIStrings.CATALOG_REPOSITORY)))
     }
-    factory {
-        GetCatalogsInteractor(get<IRepository<Catalog, Int>>())
+    single {
+        GetCatalogsInteractor(get(qualifier(DIStrings.CATALOG_REPOSITORY)))
     }
-    factory {
+    single(qualifier(DIStrings.CATALOG_INTERACTORS)) {
         CatalogInteractors(
             get<GetCatalogsInteractor>(),
             get<DeleteCatalogInteractor>(),
