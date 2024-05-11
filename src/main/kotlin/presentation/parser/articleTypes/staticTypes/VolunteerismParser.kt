@@ -1,4 +1,4 @@
-package presentation.parser.articleTypes
+package presentation.parser.articleTypes.staticTypes
 
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
